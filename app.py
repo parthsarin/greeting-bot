@@ -51,7 +51,6 @@ def handle_welcome(user_id: str):
 @app.route("/", methods=['POST'])
 def index():
     payload = request.json
-    breakpoint()
 
     # Slackbot challenge
     if "challenge" in payload:
