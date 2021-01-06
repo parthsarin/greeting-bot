@@ -37,7 +37,7 @@ def handle_welcome(user_id: str):
     channel_id = data.get('channel', {}).get('id')
 
     # Post the message
-    msg = open(MESSAGE_FILE, 'r').read()
+    msg = open(MESSAGE_FILE, 'r').read().format(user_id=user_id)
     requests.post(
         "https://slack.com/api/chat.postMessage",
         headers=SLACK_HEADERS, 
