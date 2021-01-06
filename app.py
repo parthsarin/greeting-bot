@@ -30,7 +30,7 @@ def handle_welcome(user_id: str):
         }
     )
 
-    if not channel_req.ok and (data := channel_req.json()).get('ok', False):
+    if not (channel_req.ok and (data := channel_req.json()).get('ok', False)):
         # Something went wrong
         return
     
@@ -51,6 +51,7 @@ def handle_welcome(user_id: str):
 @app.route("/", methods=['POST'])
 def index():
     payload = request.json
+    breakpoint()
 
     # Slackbot challenge
     if "challenge" in payload:
